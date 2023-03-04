@@ -1,0 +1,67 @@
+{
+    "workspaceFolder": "/workspaces",
+    "build": {
+        "dockerfile": "../Dockerfile.dev"
+    },
+    "remoteUser": "nonroot",
+
+    "customizations": {
+        "vscode": {
+            // code --list-extensions | xargs -L 1 echo code --install-extension
+            "extensions": [
+                "donjayamanne.githistory",
+                "eamodio.gitlens",
+                "mechatroner.rainbow-csv",
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "redhat.vscode-yaml",
+                "tomoki1207.pdf",
+                "VisualStudioExptTeam.intellicode-api-usage-examples",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "vscodevim.vim",
+                "wholroyd.jinja",
+                "yzhang.markdown-all-in-one"
+            ],
+            "settings": {
+                "python.testing.pytestArgs": [
+                    "."
+                ],
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestEnabled": true,
+                "python.formatting.provider": "black",
+                "python.linting.mypyEnabled": true,
+                "python.linting.enabled": true
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": true
+        }
+    },
+
+    "portsAttributes": {
+        "5000": {
+            "label": "Flasky app point",
+            "onAutoForward": "notify"
+        }
+    },
+
+    "forwardPorts": [
+        5000
+    ],
+
+    // mounts, the ${localWorkspaceFolder} is the path of local folder that contains .devcontainer/devcontainer.json
+    "mounts": [
+        {
+            "source": "${localWorkspaceFolder}/app",
+            "target": "/opt/app",
+            "type": "bind"
+        }
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "python /opt/app/index.py"
+}
