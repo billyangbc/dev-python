@@ -19,8 +19,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-      - name: Build and push
-        uses: docker/build-push-action@v4
+          
+      - uses: mr-smithers-excellent/docker-build-push@v6
+        name: Build & push Docker image
         with:
-          push: true
-          tags: code-lab-flask:latest,code-lab-flask:0.01
+          image: billyangbc/code-lab-flask
+          registry: docker.io
+          tags: v1, latest
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASS }}
