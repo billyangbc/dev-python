@@ -1,4 +1,5 @@
 {
+    "name": "Code-Lab-Flask",
     "workspaceFolder": "/workspaces",
     "build": {
         "dockerfile": "../Dockerfile.dev"
@@ -13,6 +14,7 @@
                 "eamodio.gitlens",
                 "mechatroner.rainbow-csv",
                 "ms-azuretools.vscode-docker",
+                "ms-vscode.makefile-tools",
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "redhat.vscode-yaml",
