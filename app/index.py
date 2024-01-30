@@ -1,6 +1,6 @@
 # Infrastructure test page.
 from flask import Flask
-from flask import Markup
+from markupsafe import Markup
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
