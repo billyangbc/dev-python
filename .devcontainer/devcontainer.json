@@ -49,15 +49,17 @@
                 "mechatroner.rainbow-csv",
                 "ms-azuretools.vscode-docker",
                 "ms-vscode.makefile-tools",
-                "ms-python.python",
-                "ms-python.vscode-pylance",
                 "redhat.vscode-yaml",
                 "tomoki1207.pdf",
                 "VisualStudioExptTeam.intellicode-api-usage-examples",
                 "VisualStudioExptTeam.vscodeintellicode",
                 "vscodevim.vim",
-                "wholroyd.jinja",
-                "yzhang.markdown-all-in-one"
+                //"yzhang.markdown-all-in-one",
+                "cweijan.vscode-typora", // another markdown extension
+                // python extensions
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "wholroyd.jinja"
             ],
             "settings": {
                 "python.testing.pytestArgs": [
