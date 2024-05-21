@@ -10,8 +10,15 @@ services:
             - ./app:/opt/app
         ports:
             - "5000:5000"
+        environment:
+            PYTHONDONTWRITEBYTECODE: 1
+            S3_ENDPOINT: http://storage:9000
+            S3_USE_PATH_STYLE: 1
+            S3_ACCESS_KEY_ID: fakeaccesskey
+            S3_SECRET_ACCESS_KEY: fakesecretkey
         links:
             - db
+            - storage
     db:
         image: mariadb:latest
         environment:
@@ -23,5 +30,18 @@ services:
             - mysqldata:/var/lib/mysql
         ports:
             - 13306:3306
+    storage:
+        image: minio/minio
+        command: minio server /data
+        volumes:
+            - storage_data:/data
+        restart: always
+        environment:
+            MINIO_ACCESS_KEY: fakeaccesskey
+            MINIO_SECRET_KEY: fakesecretkey
+        ports:
+            - 9000:9000
+
 volumes:
     mysqldata: {}
+    storage_data: {}
