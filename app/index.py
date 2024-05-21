@@ -1,4 +1,5 @@
 # Infrastructure test page.
+import os
 from flask import Flask
 from markupsafe import Markup
 from flask import render_template
@@ -32,8 +33,9 @@ def test():
     else:
         pass
 
+    env_str = 's3_endpoint={0}'.format(os.environ['S3_ENDPOINT'])
     if mysql_result:
-        result = Markup('<span style="color: green;">PASS</span>')
+        result = Markup(f'<span style="color: green;">PASS</span><br><span>{env_str}</span>')
     else:
         result = Markup('<span style="color: red;">FAIL</span> [{}]'.format(err))
 
